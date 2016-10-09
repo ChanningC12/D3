@@ -1,0 +1,31 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>D3 Example</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+<body>
+
+	<script>
+
+		function type(d){
+			d.sepal_length = +d.sepal_length;
+			d.sepal_width = +d.sepal_width;
+			d.petal_length = +d.petal_length;
+			d.petal_width = +d.petal_width;
+			return d;
+		}
+	
+		d3.csv("iris.csv",type, function(data){
+			//var min = d3.min(data,function(d){return d.sepal_length;});
+			//var max = d3.max(data,function(d){return d.sepal_width;});
+			var extent = d3.extent(data,function(d){return d.sepal_length;}); //minimum and maximum
+			console.log(extent);
+		});
+
+
+	</script>
+</body>
+</html>	

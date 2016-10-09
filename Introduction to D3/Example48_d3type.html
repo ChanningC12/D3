@@ -1,0 +1,26 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>D3 Example</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+<body>
+	<script>
+
+		d3.csv("data.csv", type, function(myArrayObjects){  // type is a preprocessing step
+			myArrayObjects.forEach(function(d){
+				console.log(d.x + ", " + d.y);
+			});
+		});
+
+		function type(d) {
+			d.x = parseFloat(d.x); // or +d.x
+			d.y = parseFloat(d.y); // or +d.y
+			return d;
+		}
+
+	</script>
+</body>
+</html>

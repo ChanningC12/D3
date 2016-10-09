@@ -1,0 +1,36 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>D3 Example</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+<body>
+
+	<script>
+
+		var data = [1,2,3,4,5]; //input data
+
+		var scale = d3.scale.linear() // set up the scale for the data
+					.domain([1,5])
+					.range([0,200]);
+
+		var svg = d3.select("body").append("svg") //d3.select, call the element in the <body>
+		// append("svg") will call svg and append to the body
+				.attr("width", 250) // attr: attribute. Set attribute 
+				.attr("height", 250);		
+
+		var rects = svg.selectAll("rect").data(data); 
+				
+				rects.enter() // virtual selection, all the stuffs after enter will execute only for the case
+				.append("rect")
+				.attr("x", scale)
+				.attr("y", 50)
+				.attr("width", 20)
+				.attr("height", 20);
+
+
+	</script>
+</body>
+</html>	

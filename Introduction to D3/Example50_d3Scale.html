@@ -1,0 +1,23 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>D3 Example</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+<body>
+	<script>
+
+		var scale = d3.scale.linear() // transform data space into pixel space
+					.domain([0,1]); //Data space
+					.range([0,100]); // Pixel space
+// chaining
+
+		console.log(scale(0)); // print 0
+		console.log(scale(0.5)); // pring 50
+		console.log(scale(1)); // print 100
+
+	</script>
+</body>
+</html>

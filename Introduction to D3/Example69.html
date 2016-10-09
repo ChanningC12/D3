@@ -1,0 +1,49 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>D3 Example</title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+<body>
+
+	<script>
+
+		var svg = d3.select("body").append("svg") //d3.select, call the element in the <body>
+		// append("svg") will call svg and append to the body
+				.attr("width", 250) // attr: attribute. Set attribute 
+				.attr("height", 250);		
+
+		function render (data){
+			//Bind data
+			var circles = svg.selectAll("circle") 
+
+				//Enter
+				.circles.enter() // virtual selection, all the stuffs after enter will execute only for the case
+				.append("circle")
+				.attr("r", 10);
+
+				//update
+				circles
+				.attr("cx", function(d) {return d.x;} )
+				.attr("cy", function(d) {return d.y;} )
+				.attr("fill","red");
+
+				circles.exit().remove();
+			}
+
+			function type (d) {
+				d.x = +d.x;
+				d.y = +d.y;
+				return d;
+			}
+
+			// type get called for every single row in this file, and render gets called with the array of objects
+			d3.csv("data.csv",type,render);
+	
+
+
+	</script>
+</body>
+</html>	
